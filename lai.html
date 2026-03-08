@@ -258,6 +258,30 @@
         max-width: 780px;
         margin-left: auto;
         margin-right: auto;
+        /* ===== CÂU 3 ĐỊNH DẠNG ĐẸP ===== */
+        display: inline-block;
+        max-width: 110%;
+        margin: 0 auto;
+        padding: 25px 40px;
+
+        font-size: 38px;
+        line-height: 1.8;
+
+        text-align: left; /* ⭐ căn trái chữ */
+
+        background: linear-gradient(180deg, #fffdf5, #fff3cd);
+        border-radius: 30px;
+        border: 5px dashed #f1c40f;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+        .question-style-3::first-line {
+          font-weight: 900;
+        }
+
+        .question-style-3 p {
+          margin: 18px 0;
+          text-indent: 40px;
+        }
       }
       /*moi*/
       #finish-btn {
@@ -534,7 +558,7 @@
       /* ================= QUIZ DATA ================= */
 
       const quizData = {
-        1: {
+        2: {
           question: "Ai là mẹ của thỏ bông?",
           options: [
             { text: "A. Bà", correct: false },
@@ -543,16 +567,16 @@
           ],
         },
 
-        2: {
-          question: "Mẹ thỏ bông làm gì khi trời mưa?",
+        3: {
+          question:
+            '"Mẹ thỏ dắt con đi chơi. Trời nắng, mẹ lấy mũ đội cho con. Trời mưa, mẹ lấy ô che cho con khỏi ướt"',
           options: [
-            { text: "A. Che ô cho con", correct: true },
-            { text: "B. Đội mũ cho con", correct: false },
-            { text: "C. Bế con chạy", correct: false },
+            { text: "A. Đọc đúng rồi", correct: true },
+            { text: "B. Đọc sai rồi", correct: false },
           ],
         },
 
-        3: {
+        1: {
           question:
             '"Bà bận nấu cơm, bé chơi một mình. Bé đóng vai mẹ, lấy thỏ bông làm em bé."',
           options: [
@@ -562,9 +586,9 @@
         },
 
         4: {
-          question: "Khi trời nắng mẹ làm gì cho con?",
+          question: "Mẹ thỏ bông làm gì khi dắt con đi chơi lúc trời mưa?",
           options: [
-            { text: "A. Đội mũ cho con", correct: true },
+            { text: "A. Lấy ô che cho con khỏi ướt", correct: true },
             { text: "B. Mang giày", correct: false },
             { text: "C. Mặc áo ấm", correct: false },
           ],
@@ -653,7 +677,7 @@
         document.getElementById("quiz-content").style.display = "block";
         statusIcon.style.display = "none";
 
-        document.getElementById("question-text").innerText = data.question;
+        document.getElementById("question-text").innerHTML = data.question;
 
         const container = document.getElementById("options-container");
         container.innerHTML = "";
@@ -685,8 +709,8 @@
           statusIcon.className = "icon-correct";
 
           /* ✅ CÂU 3 dùng video riêng */
-          if (currentPiece == 3) {
-            videoElement.src = "llm.mp4";
+          if (currentPiece == 1 || currentPiece == 3) {
+            videoElement.src = "cui1.mp4";
           } else {
             videoElement.src = "vloli.mp4";
           }
@@ -696,7 +720,12 @@
           statusIcon.innerHTML = "✘";
           statusIcon.className = "icon-wrong";
 
-          videoElement.src = "vloli2.mp4";
+          // ❌ Câu 1 và 3 sai → video khóc riêng
+          if (currentPiece == 1 || currentPiece == 3) {
+            videoElement.src = "khoc4.mp4";
+          } else {
+            videoElement.src = "vloli2.mp4";
+          }
         }
 
         setTimeout(() => {
