@@ -244,57 +244,24 @@
           transform: translateX(15px);
         }
       }
-      /* ================= MOBILE PORTRAIT SCALE ================= */
-      @media (max-width: 768px) {
-        body,
-        html {
-          overflow: auto;
-        }
-
-        .game-background {
-          transform: scale(0.55);
-          transform-origin: top center;
-          height: auto;
-        }
-      }
 
       /* ================= QUESTION ================= */
-
       #question-text {
-        font-size: 50px;
+        font-size: 44px;
         font-weight: 900;
         color: #e74c3c;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
         line-height: 1.7;
-        text-align: center;
-        padding: 20px 40px;
-        max-width: 780px;
+        text-align: left;
+        padding: 30px 45px;
+        max-width: 90%;
         margin-left: auto;
         margin-right: auto;
-        /* ===== CÂU 3 ĐỊNH DẠNG ĐẸP ===== */
-        display: inline-block;
-        max-width: 110%;
-        margin: 0 auto;
-        padding: 25px 40px;
-
-        font-size: 38px;
-        line-height: 1.8;
-
-        text-align: left; /* ⭐ căn trái chữ */
 
         background: linear-gradient(180deg, #fffdf5, #fff3cd);
         border-radius: 30px;
         border: 5px dashed #f1c40f;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-
-        .question-style-3::first-line {
-          font-weight: 900;
-        }
-
-        .question-style-3 p {
-          margin: 18px 0;
-          text-indent: 40px;
-        }
       }
       /*moi*/
       #finish-btn {
@@ -453,6 +420,57 @@
         100% {
           filter: brightness(1);
           transform: scale(1);
+        }
+      }
+      /* ================= MOBILE MODE ================= */
+      @media (max-width: 768px) {
+        .main-content {
+          flex-direction: column;
+          gap: 25px;
+        }
+
+        .puzzle-grid {
+          width: 320px;
+          height: 320px;
+        }
+
+        .piece {
+          font-size: 90px;
+        }
+
+        .right-panel {
+          width: 95%;
+          height: auto;
+        }
+
+        #quiz-panel {
+          padding: 30px 25px;
+          border-radius: 35px;
+        }
+
+        #question-text {
+          font-size: 22px;
+          padding: 18px;
+        }
+
+        .option-btn {
+          font-size: 20px;
+          padding: 18px;
+          margin: 12px 0;
+        }
+
+        .selection-footer {
+          transform: scale(0.85);
+          bottom: 10px;
+        }
+
+        #video-container {
+          width: 90%;
+          height: auto;
+        }
+
+        #final-image {
+          width: 90%;
         }
       }
 
@@ -925,7 +943,28 @@
         } else {
           canvas.style.display = "none";
         }
-      }
+      } /* ================= GIẢ LẬP MOBILE ================= */
+
+      let mobileMode = false;
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Shift") {
+          mobileMode = !mobileMode;
+
+          if (mobileMode) {
+            document.documentElement.style.transform = "scale(0.45)";
+            document.documentElement.style.transformOrigin = "top center";
+            document.documentElement.style.width = "430px";
+            document.documentElement.style.margin = "0 auto";
+            document.body.style.background = "#111";
+          } else {
+            document.documentElement.style.transform = "";
+            document.documentElement.style.width = "";
+            document.documentElement.style.margin = "";
+            document.body.style.background = "";
+          }
+        }
+      });
     </script>
   </body>
 </html>
