@@ -25,6 +25,109 @@
         font-family: "Lexend", sans-serif;
         background: #000;
       }
+      /* ================= MOBILE RESPONSIVE ================= */
+      @media (max-width: 768px) {
+        body,
+        html {
+          overflow: auto;
+        }
+
+        .main-content {
+          flex-direction: column;
+          gap: 20px;
+          padding: 10px;
+        }
+
+        .puzzle-grid {
+          width: 90vw;
+          height: 90vw;
+        }
+
+        .piece {
+          font-size: 80px;
+        }
+
+        .right-panel {
+          width: 95vw;
+          height: auto;
+        }
+
+        #quiz-panel {
+          padding: 30px 20px;
+          border-radius: 30px;
+        }
+
+        #question-text {
+          font-size: 22px;
+          padding: 15px;
+        }
+
+        .option-btn {
+          font-size: 22px;
+          padding: 18px;
+          margin: 12px 0;
+          border-radius: 40px;
+        }
+
+        .selection-footer {
+          gap: 15px;
+          padding: 15px 20px;
+          bottom: 10px;
+        }
+
+        .slot {
+          width: 55px;
+          height: 55px;
+          font-size: 24px;
+          border-radius: 15px;
+        }
+
+        #start-btn {
+          font-size: 22px;
+          padding: 15px 30px;
+          border-width: 4px;
+        }
+
+        #video-container {
+          width: 90vw;
+          height: 90vw;
+        }
+
+        #final-image {
+          width: 90vw;
+        }
+
+        #finish-btn {
+          font-size: 22px;
+          padding: 12px 30px;
+        }
+      }
+
+      /* ================= YÊU CẦU XOAY NGANG ================= */
+
+      #rotate-warning {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: #000;
+        color: #fff;
+        font-size: 28px;
+        font-weight: bold;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 99999;
+        padding: 20px;
+      }
+
+      @media (max-width: 768px) and (orientation: portrait) {
+        #rotate-warning {
+          display: flex;
+        }
+        .game-background {
+          display: none;
+        }
+      }
 
       /* ================= INTRO ================= */
 
@@ -451,6 +554,7 @@
   </head>
 
   <body>
+    <div id="rotate-warning">📱 Vui lòng xoay ngang màn hình để chơi game</div>
     <!-- INTRO -->
 
     <div id="intro-overlay">
