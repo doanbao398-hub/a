@@ -25,109 +25,6 @@
         font-family: "Lexend", sans-serif;
         background: #000;
       }
-      /* ================= MOBILE RESPONSIVE ================= */
-      @media (max-width: 768px) {
-        body,
-        html {
-          overflow: auto;
-        }
-
-        .main-content {
-          flex-direction: column;
-          gap: 20px;
-          padding: 10px;
-        }
-
-        .puzzle-grid {
-          width: 90vw;
-          height: 90vw;
-        }
-
-        .piece {
-          font-size: 80px;
-        }
-
-        .right-panel {
-          width: 95vw;
-          height: auto;
-        }
-
-        #quiz-panel {
-          padding: 30px 20px;
-          border-radius: 30px;
-        }
-
-        #question-text {
-          font-size: 22px;
-          padding: 15px;
-        }
-
-        .option-btn {
-          font-size: 22px;
-          padding: 18px;
-          margin: 12px 0;
-          border-radius: 40px;
-        }
-
-        .selection-footer {
-          gap: 15px;
-          padding: 15px 20px;
-          bottom: 10px;
-        }
-
-        .slot {
-          width: 55px;
-          height: 55px;
-          font-size: 24px;
-          border-radius: 15px;
-        }
-
-        #start-btn {
-          font-size: 22px;
-          padding: 15px 30px;
-          border-width: 4px;
-        }
-
-        #video-container {
-          width: 90vw;
-          height: 90vw;
-        }
-
-        #final-image {
-          width: 90vw;
-        }
-
-        #finish-btn {
-          font-size: 22px;
-          padding: 12px 30px;
-        }
-      }
-
-      /* ================= YÊU CẦU XOAY NGANG ================= */
-
-      #rotate-warning {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: #000;
-        color: #fff;
-        font-size: 28px;
-        font-weight: bold;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        z-index: 99999;
-        padding: 20px;
-      }
-
-      @media (max-width: 768px) and (orientation: portrait) {
-        #rotate-warning {
-          display: flex;
-        }
-        .game-background {
-          display: none;
-        }
-      }
 
       /* ================= INTRO ================= */
 
@@ -349,42 +246,22 @@
       }
 
       /* ================= QUESTION ================= */
-
       #question-text {
-        font-size: 50px;
+        font-size: 44px;
         font-weight: 900;
         color: #e74c3c;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
         line-height: 1.7;
-        text-align: center;
-        padding: 20px 40px;
-        max-width: 780px;
+        text-align: left;
+        padding: 30px 45px;
+        max-width: 90%;
         margin-left: auto;
         margin-right: auto;
-        /* ===== CÂU 3 ĐỊNH DẠNG ĐẸP ===== */
-        display: inline-block;
-        max-width: 110%;
-        margin: 0 auto;
-        padding: 25px 40px;
-
-        font-size: 38px;
-        line-height: 1.8;
-
-        text-align: left; /* ⭐ căn trái chữ */
 
         background: linear-gradient(180deg, #fffdf5, #fff3cd);
         border-radius: 30px;
         border: 5px dashed #f1c40f;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-
-        .question-style-3::first-line {
-          font-weight: 900;
-        }
-
-        .question-style-3 p {
-          margin: 18px 0;
-          text-indent: 40px;
-        }
       }
       /*moi*/
       #finish-btn {
@@ -545,6 +422,57 @@
           transform: scale(1);
         }
       }
+      /* ================= MOBILE MODE ================= */
+      @media (max-width: 768px) {
+        .main-content {
+          flex-direction: column;
+          gap: 25px;
+        }
+
+        .puzzle-grid {
+          width: 320px;
+          height: 320px;
+        }
+
+        .piece {
+          font-size: 90px;
+        }
+
+        .right-panel {
+          width: 95%;
+          height: auto;
+        }
+
+        #quiz-panel {
+          padding: 30px 25px;
+          border-radius: 35px;
+        }
+
+        #question-text {
+          font-size: 22px;
+          padding: 18px;
+        }
+
+        .option-btn {
+          font-size: 20px;
+          padding: 18px;
+          margin: 12px 0;
+        }
+
+        .selection-footer {
+          transform: scale(0.85);
+          bottom: 10px;
+        }
+
+        #video-container {
+          width: 90%;
+          height: auto;
+        }
+
+        #final-image {
+          width: 90%;
+        }
+      }
 
       .piece.glow {
         animation: glowFlash 0.6s infinite;
@@ -554,13 +482,12 @@
   </head>
 
   <body>
-    <div id="rotate-warning">📱 Vui lòng xoay ngang màn hình để chơi game</div>
     <!-- INTRO -->
 
     <div id="intro-overlay">
       <button id="start-btn" onclick="playIntro()">BẮT ĐẦU TRÒ CHƠI</button>
 
-      <video id="intro-video" src="lo.mp4" playsinline></video>
+      <video id="intro-video" src="ll.mp4" playsinline></video>
     </div>
 
     <!-- AUDIO -->
@@ -814,9 +741,9 @@
 
           /* ✅ CÂU 3 dùng video riêng */
           if (currentPiece == 1 || currentPiece == 3) {
-            videoElement.src = "cui1.mp4";
+            videoElement.src = "ttg.mp4";
           } else {
-            videoElement.src = "vloli.mp4";
+            videoElement.src = "votay.mp4";
           }
 
           createConfetti();
@@ -826,9 +753,9 @@
 
           // ❌ Câu 1 và 3 sai → video khóc riêng
           if (currentPiece == 1 || currentPiece == 3) {
-            videoElement.src = "khoc4.mp4";
+            videoElement.src = "sai.mp4";
           } else {
-            videoElement.src = "vloli2.mp4";
+            videoElement.src = "sai.mp4";
           }
         }
 
@@ -1016,7 +943,28 @@
         } else {
           canvas.style.display = "none";
         }
-      }
+      } /* ================= GIẢ LẬP MOBILE ================= */
+
+      let mobileMode = false;
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Shift") {
+          mobileMode = !mobileMode;
+
+          if (mobileMode) {
+            document.documentElement.style.transform = "scale(0.45)";
+            document.documentElement.style.transformOrigin = "top center";
+            document.documentElement.style.width = "430px";
+            document.documentElement.style.margin = "0 auto";
+            document.body.style.background = "#111";
+          } else {
+            document.documentElement.style.transform = "";
+            document.documentElement.style.width = "";
+            document.documentElement.style.margin = "";
+            document.body.style.background = "";
+          }
+        }
+      });
     </script>
   </body>
 </html>
